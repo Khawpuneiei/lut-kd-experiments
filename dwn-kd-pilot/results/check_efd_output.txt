@@ -1,0 +1,8 @@
+EFD n=2 identity=False: forward True, input grad True, LUT grad True
+EFD n=2 identity=True: forward True, input grad True, LUT grad True
+EFD n=3 identity=False: forward True, input grad True, LUT grad True
+EFD n=3 identity=True: forward True, input grad True, LUT grad True
+EFD n=6 identity=False: forward True, input grad True, LUT grad True
+EFD n=6 identity=True: forward True, input grad True, LUT grad True
+Learnable mapping: forward True, weight grad True, input grad True
+ALL CHECKS PASSED

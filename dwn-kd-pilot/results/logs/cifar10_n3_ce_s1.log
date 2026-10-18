@@ -1,0 +1,11 @@
+[ce s1] epoch 1 loss 1.8097 test_acc 0.4164 (160s)
+[ce s1] epoch 2 loss 1.5620 test_acc 0.4414 (318s)
+[ce s1] epoch 3 loss 1.4498 test_acc 0.4561 (477s)
+[ce s1] epoch 4 loss 1.3731 test_acc 0.4691 (631s)
+[ce s1] epoch 5 loss 1.3020 test_acc 0.4584 (789s)
+[ce s1] epoch 6 loss 1.2657 test_acc 0.4806 (941s)
+[ce s1] epoch 7 loss 1.2281 test_acc 0.4920 (1096s)
+[ce s1] epoch 8 loss 1.0837 test_acc 0.5032 (1250s)
+[ce s1] epoch 9 loss 1.0565 test_acc 0.5042 (1402s)
+[ce s1] epoch 10 loss 1.0440 test_acc 0.4985 (1554s)
+{"dataset": "cifar10", "mode": "ce", "seed": 1, "final_acc": 0.4985, "train_acc": 0.6647599935531616, "seconds": 1575}

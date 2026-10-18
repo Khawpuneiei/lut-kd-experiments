@@ -1,0 +1,15 @@
+/mnt/attach/project-files/outreach/dwn-kd-pilot/common.py:55: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  return (torch.from_numpy(np.ascontiguousarray(xtr)), torch.from_numpy(ytr),
+[ce_ls s1] epoch 1 loss 0.9145 test_acc 0.8386 (46s)
+[ce_ls s1] epoch 2 loss 0.8239 test_acc 0.8529 (93s)
+[ce_ls s1] epoch 3 loss 0.7998 test_acc 0.8674 (140s)
+[ce_ls s1] epoch 4 loss 0.7905 test_acc 0.8649 (187s)
+[ce_ls s1] epoch 5 loss 0.7819 test_acc 0.8641 (233s)
+[ce_ls s1] epoch 6 loss 0.7743 test_acc 0.8636 (279s)
+[ce_ls s1] epoch 7 loss 0.7734 test_acc 0.8625 (326s)
+[ce_ls s1] epoch 8 loss 0.7637 test_acc 0.8650 (373s)
+[ce_ls s1] epoch 9 loss 0.7212 test_acc 0.8754 (418s)
+[ce_ls s1] epoch 10 loss 0.7180 test_acc 0.8736 (464s)
+[ce_ls s1] epoch 11 loss 0.7190 test_acc 0.8790 (511s)
+[ce_ls s1] epoch 12 loss 0.7195 test_acc 0.8798 (557s)
+{"dataset": "fmnist", "mode": "ce_ls", "seed": 1, "final_acc": 0.8798, "train_acc": 0.92166668176651, "seconds": 572}

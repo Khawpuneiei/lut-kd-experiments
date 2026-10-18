@@ -1,0 +1,11 @@
+[kd s0] epoch 1 loss 4.7093 test_acc 0.3736 edges [196608, 640] (25s)
+[kd s0] epoch 2 loss 3.9057 test_acc 0.4154 edges [196608, 640] (49s)
+[kd s0] epoch 3 loss 3.5731 test_acc 0.4392 edges [196608, 640] (74s)
+[kd s0] epoch 4 loss 3.3263 test_acc 0.4562 edges [196386, 640] (101s)
+[kd s0] epoch 5 loss 3.1449 test_acc 0.4653 edges [193119, 640] (126s)
+[kd s0] epoch 6 loss 2.9946 test_acc 0.4619 edges [179770, 640] (152s)
+[kd s0] epoch 7 loss 2.8864 test_acc 0.4623 edges [156050, 640] (178s)
+[kd s0] epoch 8 loss 2.8000 test_acc 0.4521 edges [106298, 640] (205s)
+[kd s0] epoch 9 loss 2.8139 test_acc 0.3189 edges [38117, 639] (232s)
+[kd s0] epoch 10 loss 3.6307 test_acc 0.4352 edges [37602, 639] (258s)
+{"dataset": "cifar10", "mode": "kd", "seed": 0, "final_acc": 0.4352, "train_acc": 0.46281999349594116, "edges": [37602, 639], "table_bits": 1285056, "seconds": 265}

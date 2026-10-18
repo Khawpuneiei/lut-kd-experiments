@@ -1,0 +1,219 @@
+[21:04:53] pipeline start (fmnist epochs 12, cifar10 epochs 10)
+--- pipeline restarted below ---
+[21:13:02] pipeline start (fmnist epochs 12, cifar10 epochs 10)
+[21:18:51] stopped pipeline: FMNIST teacher v1 reached only 90.45%, retraining a stronger teacher (FC head) before any KD runs
+--- pipeline restarted (teacher v2) ---
+[21:19:23] pipeline start (fmnist epochs 12, cifar10 epochs 10)
+[21:19:23] start teacher fmnist
+[21:40:23] end teacher fmnist
+[21:40:23] start tune_tau3.33: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --val --epochs 5 --threads 1 --out results/tune_fmnist.jsonl --mode ce --tau 3.33 --tag tau
+[21:40:23] start tune_tau10: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --val --epochs 5 --threads 1 --out results/tune_fmnist.jsonl --mode ce --tau 10 --tag tau
+[21:44:29] stopped pipeline to speed up DWN code (transposed mapping weights, fused Adam); tuning restarts from scratch
+--- pipeline restarted (optimized DWN code, all checks passed) ---
+[21:46:31] pipeline start (fmnist epochs 12, cifar10 epochs 10)
+[21:46:31] start tune_tau3.33: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --val --epochs 5 --threads 1 --out results/tune_fmnist.jsonl --mode ce --tau 3.33 --tag tau
+[21:46:31] start tune_tau10: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --val --epochs 5 --threads 1 --out results/tune_fmnist.jsonl --mode ce --tau 10 --tag tau
+[21:46:31] start tune_tau30: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --val --epochs 5 --threads 1 --out results/tune_fmnist.jsonl --mode ce --tau 30 --tag tau
+[21:46:31] start tune_tau100: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --val --epochs 5 --threads 1 --out results/tune_fmnist.jsonl --mode ce --tau 100 --tag tau
+[21:53:42] end tune_tau3.33 rc=0
+[21:53:43] end tune_tau30 rc=0
+[21:53:49] end tune_tau10 rc=0
+[21:53:51] end tune_tau100 rc=0
+[21:53:51] best tau: [(3.33, 0.8692), (30.0, 0.8738), (10.0, 0.8882), (100.0, 0.8068)] -> 10.0
+[21:53:51] start tune_kd_T2_a0.5: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --val --epochs 5 --threads 1 --out results/tune_fmnist.jsonl --mode kd --tau 10.0 --T 2 --alpha 0.5 --tag kd
+[21:53:51] start tune_kd_T2_a0.9: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --val --epochs 5 --threads 1 --out results/tune_fmnist.jsonl --mode kd --tau 10.0 --T 2 --alpha 0.9 --tag kd
+[21:53:51] start tune_kd_T4_a0.5: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --val --epochs 5 --threads 1 --out results/tune_fmnist.jsonl --mode kd --tau 10.0 --T 4 --alpha 0.5 --tag kd
+[21:53:51] start tune_kd_T4_a0.9: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --val --epochs 5 --threads 1 --out results/tune_fmnist.jsonl --mode kd --tau 10.0 --T 4 --alpha 0.9 --tag kd
+[22:01:07] end tune_kd_T2_a0.9 rc=0
+[22:01:07] end tune_kd_T2_a0.5 rc=0
+[22:01:10] end tune_kd_T4_a0.9 rc=0
+[22:01:14] end tune_kd_T4_a0.5 rc=0
+[22:01:14] best kd: [((2.0, 0.9), 0.8927), ((2.0, 0.5), 0.891), ((4.0, 0.9), 0.8747), ((4.0, 0.5), 0.878)] -> (2.0, 0.9)
+[22:01:14] settings {'tau': 10.0, 'T': 2.0, 'alpha': 0.9}
+[22:01:14] start fmnist_ce_s0: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --epochs 12 --threads 2 --out results/runs_fmnist.jsonl --tag final --tau 10.0 --T 2.0 --alpha 0.9 --mode ce --seed 0
+[22:01:14] start cifar10_ce_s0: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --epochs 10 --threads 2 --out results/runs_cifar10.jsonl --tag final --tau 10.0 --T 2.0 --alpha 0.9 --mode ce --seed 0
+[22:11:49] end fmnist_ce_s0 rc=0
+[22:11:49] start fmnist_ce_ls_s0: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --epochs 12 --threads 2 --out results/runs_fmnist.jsonl --tag final --tau 10.0 --T 2.0 --alpha 0.9 --mode ce_ls --seed 0
+[22:20:49] end cifar10_ce_s0 rc=0
+[22:20:49] start cifar10_ce_ls_s0: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --epochs 10 --threads 2 --out results/runs_cifar10.jsonl --tag final --tau 10.0 --T 2.0 --alpha 0.9 --mode ce_ls --seed 0
+[22:22:19] end fmnist_ce_ls_s0 rc=0
+[22:22:19] start fmnist_kd_s0: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --epochs 12 --threads 2 --out results/runs_fmnist.jsonl --tag final --tau 10.0 --T 2.0 --alpha 0.9 --mode kd --seed 0
+[22:32:44] end fmnist_kd_s0 rc=0
+[22:32:44] start fmnist_kd_gated_s0: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --epochs 12 --threads 2 --out results/runs_fmnist.jsonl --tag final --tau 10.0 --T 2.0 --alpha 0.9 --mode kd_gated --seed 0
+[22:39:58] end cifar10_ce_ls_s0 rc=0
+[22:39:58] start cifar10_kd_s0: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --epochs 10 --threads 2 --out results/runs_cifar10.jsonl --tag final --tau 10.0 --T 2.0 --alpha 0.9 --mode kd --seed 0
+--- container restarted at ~22:44; pipeline resumed, completed runs are skipped ---
+[22:46:46] pipeline start (fmnist epochs 12, cifar10 epochs 10)
+[22:46:46] skip tune_tau3.33 (already completed)
+[22:46:46] skip tune_tau10 (already completed)
+[22:46:46] skip tune_tau30 (already completed)
+[22:46:46] skip tune_tau100 (already completed)
+[22:46:46] best tau: [(3.33, 0.8692), (30.0, 0.8738), (10.0, 0.8882), (100.0, 0.8068)] -> 10.0
+[22:46:46] skip tune_kd_T2_a0.9 (already completed)
+[22:46:46] skip tune_kd_T2_a0.5 (already completed)
+[22:46:46] skip tune_kd_T4_a0.9 (already completed)
+[22:46:46] skip tune_kd_T4_a0.5 (already completed)
+[22:46:46] best kd: [((2.0, 0.9), 0.8927), ((2.0, 0.5), 0.891), ((4.0, 0.9), 0.8747), ((4.0, 0.5), 0.878)] -> (2.0, 0.9)
+[22:46:46] settings {'tau': 10.0, 'T': 2.0, 'alpha': 0.9}
+[22:46:46] skip fmnist_ce_s0 (already completed)
+[22:46:46] skip cifar10_ce_s0 (already completed)
+[22:46:46] skip fmnist_ce_ls_s0 (already completed)
+[22:46:46] skip cifar10_ce_ls_s0 (already completed)
+[22:46:46] skip fmnist_kd_s0 (already completed)
+[22:46:46] start cifar10_kd_s0: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --epochs 10 --threads 2 --out results/runs_cifar10.jsonl --tag final --tau 10.0 --T 2.0 --alpha 0.9 --mode kd --seed 0
+[22:46:46] skip fmnist_kd_gated_s0 (already completed)
+[22:46:46] start fmnist_kd_conf_s0: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --epochs 12 --threads 2 --out results/runs_fmnist.jsonl --tag final --tau 10.0 --T 2.0 --alpha 0.9 --mode kd_conf --seed 0
+[22:57:22] end fmnist_kd_conf_s0 rc=0
+[22:57:22] start fmnist_ce_s1: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --epochs 12 --threads 2 --out results/runs_fmnist.jsonl --tag final --tau 10.0 --T 2.0 --alpha 0.9 --mode ce --seed 1
+[23:06:02] end cifar10_kd_s0 rc=0
+[23:06:02] start cifar10_kd_gated_s0: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --epochs 10 --threads 2 --out results/runs_cifar10.jsonl --tag final --tau 10.0 --T 2.0 --alpha 0.9 --mode kd_gated --seed 0
+[23:07:19] end fmnist_ce_s1 rc=0
+[23:07:19] start fmnist_ce_ls_s1: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --epochs 12 --threads 2 --out results/runs_fmnist.jsonl --tag final --tau 10.0 --T 2.0 --alpha 0.9 --mode ce_ls --seed 1
+[23:17:02] end fmnist_ce_ls_s1 rc=0
+[23:17:02] start fmnist_kd_s1: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --epochs 12 --threads 2 --out results/runs_fmnist.jsonl --tag final --tau 10.0 --T 2.0 --alpha 0.9 --mode kd --seed 1
+[23:24:31] end cifar10_kd_gated_s0 rc=0
+[23:24:31] start cifar10_kd_conf_s0: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --epochs 10 --threads 2 --out results/runs_cifar10.jsonl --tag final --tau 10.0 --T 2.0 --alpha 0.9 --mode kd_conf --seed 0
+[23:26:50] end fmnist_kd_s1 rc=0
+[23:26:50] start fmnist_kd_gated_s1: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --epochs 12 --threads 2 --out results/runs_fmnist.jsonl --tag final --tau 10.0 --T 2.0 --alpha 0.9 --mode kd_gated --seed 1
+[23:36:30] end fmnist_kd_gated_s1 rc=0
+[23:36:30] start fmnist_kd_conf_s1: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --epochs 12 --threads 2 --out results/runs_fmnist.jsonl --tag final --tau 10.0 --T 2.0 --alpha 0.9 --mode kd_conf --seed 1
+[23:42:41] end cifar10_kd_conf_s0 rc=0
+[23:42:41] start cifar10_ce_s1: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --epochs 10 --threads 2 --out results/runs_cifar10.jsonl --tag final --tau 10.0 --T 2.0 --alpha 0.9 --mode ce --seed 1
+[23:46:09] end fmnist_kd_conf_s1 rc=0
+[23:46:09] start fmnist_ce_s2: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --epochs 12 --threads 2 --out results/runs_fmnist.jsonl --tag final --tau 10.0 --T 2.0 --alpha 0.9 --mode ce --seed 2
+[23:52:57] restarted pipeline with a reprioritised queue (CIFAR-10 seeds first); cifar10_ce_s1 (pid 1117) and fmnist_ce_s2 (pid 1158) keep running from the old process and were pre-marked complete
+[23:52:58] pipeline start (fmnist epochs 12, cifar10 epochs 10)
+[23:52:58] skip tune_tau3.33 (already completed)
+[23:52:58] skip tune_tau30 (already completed)
+[23:52:58] skip tune_tau10 (already completed)
+[23:52:58] skip tune_tau100 (already completed)
+[23:52:58] best tau: [(3.33, 0.8692), (30.0, 0.8738), (10.0, 0.8882), (100.0, 0.8068)] -> 10.0
+[23:52:58] skip tune_kd_T2_a0.9 (already completed)
+[23:52:58] skip tune_kd_T2_a0.5 (already completed)
+[23:52:58] skip tune_kd_T4_a0.5 (already completed)
+[23:52:58] skip tune_kd_T4_a0.9 (already completed)
+[23:52:58] best kd: [((2.0, 0.9), 0.8927), ((2.0, 0.5), 0.891), ((4.0, 0.9), 0.8747), ((4.0, 0.5), 0.878)] -> (2.0, 0.9)
+[23:52:58] settings {'tau': 10.0, 'T': 2.0, 'alpha': 0.9}
+[23:56:08] skip fmnist_ce_s0 (already completed)
+[23:56:08] skip fmnist_ce_ls_s0 (already completed)
+[23:56:08] skip fmnist_kd_s0 (already completed)
+[23:56:08] skip fmnist_kd_gated_s0 (already completed)
+[23:56:08] skip fmnist_kd_conf_s0 (already completed)
+[23:56:08] skip fmnist_ce_s1 (already completed)
+[23:56:08] skip fmnist_ce_ls_s1 (already completed)
+[23:56:08] skip fmnist_kd_s1 (already completed)
+[23:56:08] skip fmnist_kd_gated_s1 (already completed)
+[23:56:08] skip fmnist_kd_conf_s1 (already completed)
+[23:56:08] skip cifar10_ce_s0 (already completed)
+[23:56:08] skip cifar10_ce_ls_s0 (already completed)
+[23:56:08] skip cifar10_kd_s0 (already completed)
+[23:56:08] skip cifar10_kd_gated_s0 (already completed)
+[23:56:08] skip cifar10_kd_conf_s0 (already completed)
+[23:56:08] skip cifar10_ce_s1 (already completed)
+[23:56:08] start cifar10_kd_s1: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --tau 10.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 10 --out results/runs_cifar10.jsonl --tag final --mode kd --seed 1
+[23:58:01] restarted pipeline to add a 20-epoch CIFAR-10 check (does the KD gain survive longer training?); cifar10_ce_s1 (pid 1117) and cifar10_kd_s1 (pid 1466) keep running and were pre-marked complete
+[23:58:01] pipeline start (fmnist epochs 12, cifar10 epochs 10)
+[23:58:01] skip tune_tau3.33 (already completed)
+[23:58:01] skip tune_tau10 (already completed)
+[23:58:01] skip tune_tau30 (already completed)
+[23:58:01] skip tune_tau100 (already completed)
+[23:58:01] best tau: [(3.33, 0.8692), (30.0, 0.8738), (10.0, 0.8882), (100.0, 0.8068)] -> 10.0
+[23:58:01] skip tune_kd_T2_a0.5 (already completed)
+[23:58:01] skip tune_kd_T2_a0.9 (already completed)
+[23:58:01] skip tune_kd_T4_a0.5 (already completed)
+[23:58:01] skip tune_kd_T4_a0.9 (already completed)
+[23:58:01] best kd: [((2.0, 0.9), 0.8927), ((2.0, 0.5), 0.891), ((4.0, 0.9), 0.8747), ((4.0, 0.5), 0.878)] -> (2.0, 0.9)
+[23:58:01] settings {'tau': 10.0, 'T': 2.0, 'alpha': 0.9}
+[00:01:21] skip fmnist_ce_s0 (already completed)
+[00:01:21] skip fmnist_ce_ls_s0 (already completed)
+[00:01:21] skip fmnist_kd_s0 (already completed)
+[00:01:21] skip fmnist_kd_gated_s0 (already completed)
+[00:01:21] skip fmnist_kd_conf_s0 (already completed)
+[00:01:21] skip fmnist_ce_s1 (already completed)
+[00:01:21] skip fmnist_ce_ls_s1 (already completed)
+[00:01:21] skip fmnist_kd_s1 (already completed)
+[00:01:21] skip fmnist_kd_gated_s1 (already completed)
+[00:01:21] skip fmnist_kd_conf_s1 (already completed)
+[00:01:21] skip cifar10_ce_s0 (already completed)
+[00:01:21] skip cifar10_ce_ls_s0 (already completed)
+[00:01:21] skip cifar10_kd_s0 (already completed)
+[00:01:21] skip cifar10_kd_gated_s0 (already completed)
+[00:01:21] skip cifar10_kd_conf_s0 (already completed)
+[00:01:21] skip cifar10_ce_s1 (already completed)
+[00:01:21] skip cifar10_kd_s1 (already completed)
+[00:01:21] start cifar10_ce_s2: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --tau 10.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 10 --out results/runs_cifar10.jsonl --tag final --mode ce --seed 2
+[00:15:01] start cifar10_kd_s2: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --tau 10.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 10 --out results/runs_cifar10.jsonl --tag final --mode kd --seed 2
+[00:19:57] end cifar10_ce_s2 rc=0
+[00:19:57] start cifar10_ce_ls_s1: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --tau 10.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 10 --out results/runs_cifar10.jsonl --tag final --mode ce_ls --seed 1
+[00:33:25] end cifar10_kd_s2 rc=0
+[00:33:25] start cifar10_kd_gated_s1: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --tau 10.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 10 --out results/runs_cifar10.jsonl --tag final --mode kd_gated --seed 1
+[00:38:09] end cifar10_ce_ls_s1 rc=0
+[00:38:09] start cifar10_n3_ce_s0: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 3 --bs 256 --tau 10.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 10 --out results/runs_cifar10_n3.jsonl --tag n3 --mode ce --seed 0
+[00:51:40] end cifar10_kd_gated_s1 rc=0
+[00:51:40] start cifar10_long_ce_s0: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --tau 10.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 20 --out results/runs_cifar10_long.jsonl --tag long --mode ce --seed 0
+[01:04:33] end cifar10_n3_ce_s0 rc=0
+[01:04:33] start cifar10_long_kd_s0: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --tau 10.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 20 --out results/runs_cifar10_long.jsonl --tag long --mode kd --seed 0
+[01:05:19] restarted pipeline to run the second n = 3 seed next (n = 3 seed 0 matched KD at n = 2); cifar10_long_ce_s0 (pid 3442) and cifar10_long_kd_s0 (pid 3912) keep running and were pre-marked complete
+[01:05:19] pipeline start (fmnist epochs 12, cifar10 epochs 10)
+[01:05:19] skip tune_tau3.33 (already completed)
+[01:05:19] skip tune_tau10 (already completed)
+[01:05:19] skip tune_tau30 (already completed)
+[01:05:19] skip tune_tau100 (already completed)
+[01:05:19] best tau: [(3.33, 0.8692), (30.0, 0.8738), (10.0, 0.8882), (100.0, 0.8068)] -> 10.0
+[01:05:19] skip tune_kd_T2_a0.5 (already completed)
+[01:05:19] skip tune_kd_T4_a0.5 (already completed)
+[01:05:19] skip tune_kd_T2_a0.9 (already completed)
+[01:05:19] skip tune_kd_T4_a0.9 (already completed)
+[01:05:19] best kd: [((2.0, 0.9), 0.8927), ((2.0, 0.5), 0.891), ((4.0, 0.9), 0.8747), ((4.0, 0.5), 0.878)] -> (2.0, 0.9)
+[01:05:19] settings {'tau': 10.0, 'T': 2.0, 'alpha': 0.9}
+[01:28:29] skip fmnist_ce_s0 (already completed)
+[01:28:29] skip fmnist_ce_ls_s0 (already completed)
+[01:28:29] skip fmnist_kd_s0 (already completed)
+[01:28:29] skip fmnist_kd_gated_s0 (already completed)
+[01:28:29] skip fmnist_kd_conf_s0 (already completed)
+[01:28:29] skip fmnist_ce_s1 (already completed)
+[01:28:29] skip fmnist_ce_ls_s1 (already completed)
+[01:28:29] skip fmnist_kd_s1 (already completed)
+[01:28:29] skip fmnist_kd_gated_s1 (already completed)
+[01:28:29] skip fmnist_kd_conf_s1 (already completed)
+[01:28:29] skip cifar10_ce_s0 (already completed)
+[01:28:29] skip cifar10_ce_ls_s0 (already completed)
+[01:28:29] skip cifar10_kd_s0 (already completed)
+[01:28:29] skip cifar10_kd_gated_s0 (already completed)
+[01:28:29] skip cifar10_kd_conf_s0 (already completed)
+[01:28:29] skip cifar10_ce_s1 (already completed)
+[01:28:29] skip cifar10_kd_s1 (already completed)
+[01:28:29] skip cifar10_ce_s2 (already completed)
+[01:28:29] skip cifar10_kd_s2 (already completed)
+[01:28:29] skip cifar10_ce_ls_s1 (already completed)
+[01:28:29] skip cifar10_kd_gated_s1 (already completed)
+[01:28:29] skip cifar10_n3_ce_s0 (already completed)
+[01:28:29] skip cifar10_long_ce_s0 (already completed)
+[01:28:29] skip cifar10_long_kd_s0 (already completed)
+[01:28:29] start cifar10_n3_ce_s1: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 3 --bs 256 --tau 10.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 10 --out results/runs_cifar10_n3.jsonl --tag n3 --mode ce --seed 1
+[01:41:39] start cifar10_kd_conf_s1: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --tau 10.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 10 --out results/runs_cifar10.jsonl --tag final --mode kd_conf --seed 1
+[01:55:34] end cifar10_n3_ce_s1 rc=0
+[01:55:34] start fmnist_exact_ce_s0: student.py --dataset fmnist --bits 7 --n1 8000 --n2 8000 --n 2 --bs 256 --tau 20.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 12 --out results/runs_fmnist_exact.jsonl --tag exact --mode ce --seed 0
+[02:00:23] end cifar10_kd_conf_s1 rc=0
+[02:00:23] skip fmnist_ce_s2 (already completed)
+[02:00:23] start fmnist_ce_ls_s2: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --tau 10.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 12 --out results/runs_fmnist.jsonl --tag final --mode ce_ls --seed 2
+[02:10:37] end fmnist_ce_ls_s2 rc=0
+[02:10:37] start fmnist_kd_s2: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --tau 10.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 12 --out results/runs_fmnist.jsonl --tag final --mode kd --seed 2
+[02:20:54] end fmnist_kd_s2 rc=0
+[02:20:54] start fmnist_kd_gated_s2: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --tau 10.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 12 --out results/runs_fmnist.jsonl --tag final --mode kd_gated --seed 2
+[02:30:49] end fmnist_exact_ce_s0 rc=0
+[02:30:49] start fmnist_kd_conf_s2: student.py --dataset fmnist --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --tau 10.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 12 --out results/runs_fmnist.jsonl --tag final --mode kd_conf --seed 2
+[02:31:06] end fmnist_kd_gated_s2 rc=0
+[02:31:06] start fmnist_exact_kd_s0: student.py --dataset fmnist --bits 7 --n1 8000 --n2 8000 --n 2 --bs 256 --tau 20.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 12 --out results/runs_fmnist_exact.jsonl --tag exact --mode kd --seed 0
+[02:40:57] end fmnist_kd_conf_s2 rc=0
+[02:40:57] start cifar10_ce_ls_s2: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --tau 10.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 10 --out results/runs_cifar10.jsonl --tag final --mode ce_ls --seed 2
+[02:59:48] end cifar10_ce_ls_s2 rc=0
+[02:59:48] start cifar10_kd_gated_s2: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --tau 10.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 10 --out results/runs_cifar10.jsonl --tag final --mode kd_gated --seed 2
+[03:07:18] end fmnist_exact_kd_s0 rc=0
+[03:07:18] start cifar10_kd_conf_s2: student.py --dataset cifar10 --bits 3 --n1 4000 --n2 4000 --n 2 --bs 256 --tau 10.0 --T 2.0 --alpha 0.9 --threads 2 --epochs 10 --out results/runs_cifar10.jsonl --tag final --mode kd_conf --seed 2
+[03:18:31] end cifar10_kd_gated_s2 rc=0
+[03:25:59] end cifar10_kd_conf_s2 rc=0
+[03:25:59] pipeline done
+[17:21:39] started width check: CIFAR-10, 8000 + 8000 LUTs, n = 2, tau 20 (doubled with the LUT count, as for the exact Fashion-MNIST model), ce and kd, seed 0, out results/runs_cifar10_wide.jsonl
+[17:56:27] started width check seed 1: same settings as seed 0 (8000 + 8000 LUTs, n = 2, tau 20), ce and kd, out results/runs_cifar10_wide.jsonl
+[18:29:26] width check seed 1 done: ce 52.75, kd 52.49

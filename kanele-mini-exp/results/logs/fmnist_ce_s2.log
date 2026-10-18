@@ -1,0 +1,11 @@
+[ce s2] epoch 1 loss 0.5738 test_acc 0.8292 edges [50176, 640] (8s)
+[ce s2] epoch 2 loss 0.4237 test_acc 0.8257 edges [50176, 640] (16s)
+[ce s2] epoch 3 loss 0.4803 test_acc 0.8397 edges [50176, 640] (24s)
+[ce s2] epoch 4 loss 0.3595 test_acc 0.8585 edges [50176, 640] (33s)
+[ce s2] epoch 5 loss 0.3150 test_acc 0.8589 edges [50176, 640] (41s)
+[ce s2] epoch 6 loss 0.2892 test_acc 0.8665 edges [50176, 640] (49s)
+[ce s2] epoch 7 loss 0.2652 test_acc 0.8686 edges [50176, 640] (57s)
+[ce s2] epoch 8 loss 0.2499 test_acc 0.8713 edges [50176, 640] (65s)
+[ce s2] epoch 9 loss 0.2388 test_acc 0.8718 edges [50176, 640] (73s)
+[ce s2] epoch 10 loss 0.2323 test_acc 0.8721 edges [50176, 640] (81s)
+{"dataset": "fmnist", "mode": "ce", "seed": 2, "final_acc": 0.8721, "train_acc": 0.9162833094596863, "edges": [50176, 640], "table_bits": 1687552, "seconds": 82}

@@ -1,0 +1,11 @@
+[kd_conf s1] epoch 1 loss 3.8368 test_acc 0.4446 (104s)
+[kd_conf s1] epoch 2 loss 3.2813 test_acc 0.4742 (210s)
+[kd_conf s1] epoch 3 loss 3.0856 test_acc 0.4885 (316s)
+[kd_conf s1] epoch 4 loss 2.9589 test_acc 0.4851 (422s)
+[kd_conf s1] epoch 5 loss 2.8697 test_acc 0.4962 (528s)
+[kd_conf s1] epoch 6 loss 2.8114 test_acc 0.4967 (633s)
+[kd_conf s1] epoch 7 loss 2.7539 test_acc 0.5004 (739s)
+[kd_conf s1] epoch 8 loss 2.6005 test_acc 0.5089 (846s)
+[kd_conf s1] epoch 9 loss 2.5831 test_acc 0.5074 (951s)
+[kd_conf s1] epoch 10 loss 2.5789 test_acc 0.5125 (1058s)
+{"dataset": "cifar10", "mode": "kd_conf", "seed": 1, "final_acc": 0.5125, "train_acc": 0.6092600226402283, "seconds": 1073}

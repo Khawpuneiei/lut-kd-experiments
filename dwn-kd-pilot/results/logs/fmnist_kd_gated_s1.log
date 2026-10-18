@@ -1,0 +1,15 @@
+/mnt/attach/project-files/outreach/dwn-kd-pilot/common.py:55: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  return (torch.from_numpy(np.ascontiguousarray(xtr)), torch.from_numpy(ytr),
+[kd_gated s1] epoch 1 loss 0.8808 test_acc 0.8570 (46s)
+[kd_gated s1] epoch 2 loss 0.5690 test_acc 0.8644 (92s)
+[kd_gated s1] epoch 3 loss 0.5075 test_acc 0.8694 (139s)
+[kd_gated s1] epoch 4 loss 0.4764 test_acc 0.8721 (185s)
+[kd_gated s1] epoch 5 loss 0.4505 test_acc 0.8740 (230s)
+[kd_gated s1] epoch 6 loss 0.4319 test_acc 0.8777 (276s)
+[kd_gated s1] epoch 7 loss 0.4228 test_acc 0.8669 (323s)
+[kd_gated s1] epoch 8 loss 0.4122 test_acc 0.8781 (369s)
+[kd_gated s1] epoch 9 loss 0.3734 test_acc 0.8787 (416s)
+[kd_gated s1] epoch 10 loss 0.3676 test_acc 0.8792 (463s)
+[kd_gated s1] epoch 11 loss 0.3675 test_acc 0.8789 (509s)
+[kd_gated s1] epoch 12 loss 0.3671 test_acc 0.8780 (556s)
+{"dataset": "fmnist", "mode": "kd_gated", "seed": 1, "final_acc": 0.878, "train_acc": 0.9111999869346619, "seconds": 570}

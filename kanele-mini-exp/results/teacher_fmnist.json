@@ -1,0 +1,9 @@
+{
+ "dataset": "fmnist",
+ "test_acc": 0.932699978351593,
+ "train_acc_full": 0.948033332824707,
+ "train_acc_seen": 0.9495370388031006,
+ "epochs": 12,
+ "params": 870826,
+ "seconds": 1392.419964313507
+}

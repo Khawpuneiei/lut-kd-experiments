@@ -1,0 +1,8 @@
+/mnt/attach/project-files/outreach/dwn-kd-pilot/common.py:55: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  return (torch.from_numpy(np.ascontiguousarray(xtr)), torch.from_numpy(ytr),
+[kd s0] epoch 1 loss 0.8511 val_acc 0.8653 (84s)
+[kd s0] epoch 2 loss 0.5214 val_acc 0.8780 (161s)
+[kd s0] epoch 3 loss 0.4568 val_acc 0.8822 (239s)
+[kd s0] epoch 4 loss 0.3888 val_acc 0.8887 (316s)
+[kd s0] epoch 5 loss 0.3802 val_acc 0.8927 (392s)
+{"dataset": "fmnist", "mode": "kd", "seed": 0, "final_acc": 0.8927, "train_acc": 0.897685170173645, "seconds": 417}

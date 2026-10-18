@@ -1,0 +1,9 @@
+{
+ "dataset": "cifar10",
+ "test_acc": 0.8698999881744385,
+ "train_acc_full": 0.912339985370636,
+ "train_acc_seen": 0.915755569934845,
+ "epochs": 15,
+ "params": 288746,
+ "seconds": 2355.411065340042
+}

@@ -1,0 +1,11 @@
+[kd_gated s2] epoch 1 loss 3.8803 test_acc 0.4445 (106s)
+[kd_gated s2] epoch 2 loss 3.3136 test_acc 0.4693 (211s)
+[kd_gated s2] epoch 3 loss 3.1050 test_acc 0.4846 (317s)
+[kd_gated s2] epoch 4 loss 2.9757 test_acc 0.4922 (423s)
+[kd_gated s2] epoch 5 loss 2.8843 test_acc 0.5007 (530s)
+[kd_gated s2] epoch 6 loss 2.8178 test_acc 0.4957 (636s)
+[kd_gated s2] epoch 7 loss 2.7649 test_acc 0.5014 (742s)
+[kd_gated s2] epoch 8 loss 2.6170 test_acc 0.5085 (847s)
+[kd_gated s2] epoch 9 loss 2.6011 test_acc 0.5018 (952s)
+[kd_gated s2] epoch 10 loss 2.5997 test_acc 0.5081 (1059s)
+{"dataset": "cifar10", "mode": "kd_gated", "seed": 2, "final_acc": 0.5081, "train_acc": 0.6026800274848938, "seconds": 1074}

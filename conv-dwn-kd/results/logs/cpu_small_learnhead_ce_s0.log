@@ -1,0 +1,17 @@
+arch=conv mode=ce init=residual tau=2.50 device=cpu circuit={'lut_evals': 186368, 'or_gates': 19968, 'head_luts': 1000, 'gates_total': 207336, 'depth_levels': 13, 'trainable_tables': 6240}
+[conv ce s0] epoch 1 loss 2.4169 test_acc 0.2739 (453s)
+[conv ce s0] epoch 2 loss 2.2128 test_acc 0.3050 (905s)
+[conv ce s0] epoch 3 loss 2.1678 test_acc 0.2951 (1350s)
+[conv ce s0] epoch 4 loss 2.0905 test_acc 0.3074 (1802s)
+[conv ce s0] epoch 5 loss 2.0749 test_acc 0.3248 (2234s)
+[conv ce s0] epoch 6 loss 2.0739 test_acc 0.3236 (2663s)
+[conv ce s0] epoch 7 loss 2.0921 test_acc 0.3018 (3101s)
+[conv ce s0] epoch 8 loss 2.0834 test_acc 0.3415 (3545s)
+[conv ce s0] epoch 9 loss 2.0948 test_acc 0.3117 (3988s)
+[conv ce s0] epoch 10 loss 2.1157 test_acc 0.3454 (4429s)
+[conv ce s0] epoch 11 loss 1.8090 test_acc 0.3876 (4899s)
+[conv ce s0] epoch 12 loss 1.8477 test_acc 0.3639 (5354s)
+[conv ce s0] epoch 13 loss 1.8714 test_acc 0.3490 (5798s)
+[conv ce s0] epoch 14 loss 1.9065 test_acc 0.3745 (6251s)
+[conv ce s0] epoch 15 loss 1.9216 test_acc 0.3793 (6698s)
+{"arch": "conv", "mode": "ce", "init": "residual", "seed": 0, "final_acc": 0.3793, "last3_acc": 0.3676, "train_acc": 0.3905999958515167, "gates_total": 207336, "depth_levels": 13, "seconds": 7048}

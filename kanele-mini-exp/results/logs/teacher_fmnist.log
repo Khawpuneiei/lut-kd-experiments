@@ -1,0 +1,13 @@
+epoch 1 loss 0.486 test_acc 0.8510 (127s)
+epoch 2 loss 0.432 test_acc 0.8593 (239s)
+epoch 3 loss 0.356 test_acc 0.8680 (355s)
+epoch 4 loss 0.295 test_acc 0.9005 (466s)
+epoch 5 loss 0.294 test_acc 0.9046 (576s)
+epoch 6 loss 0.246 test_acc 0.9091 (685s)
+epoch 7 loss 0.376 test_acc 0.9171 (792s)
+epoch 8 loss 0.159 test_acc 0.9220 (902s)
+epoch 9 loss 0.241 test_acc 0.9261 (1006s)
+epoch 10 loss 0.130 test_acc 0.9290 (1112s)
+epoch 11 loss 0.105 test_acc 0.9328 (1214s)
+epoch 12 loss 0.138 test_acc 0.9327 (1320s)
+{"dataset": "fmnist", "test_acc": 0.932699978351593, "train_acc_full": 0.948033332824707, "train_acc_seen": 0.9495370388031006, "epochs": 12, "params": 870826, "seconds": 1392.419964313507}
